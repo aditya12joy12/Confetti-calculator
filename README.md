@@ -1,154 +1,70 @@
-import React, { useState } from 'react';
-import './calculator.css';
+# Getting Started with Create React App
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-const Calculator = () => {
-  const [displayValue, setDisplayValue] = useState('');
+## Available Scripts
 
-  const handleButtonClick = (value) => {
-    switch (value) {
-      case 'C':
-        setDisplayValue('');
-        break;
-      case '=':
-        try {
-          const result = eval(displayValue); 
-          setDisplayValue(result.toString());
-        } catch (error) {
-          setDisplayValue('Error');
-        }
-        break;
-      default:
-        setDisplayValue((prevValue) => prevValue + value);
-        break;
-    }
-  };
+In the project directory, you can run:
 
-  return (
-    <div className="calculator">
-      <div className="display">{displayValue}</div>
-      <button onClick={() => handleButtonClick('(')}>(</button>
-      <button onClick={() => handleButtonClick(')')}>)</button>
-      <button onClick={() => handleButtonClick('mc')}>mc</button>
-      <button onClick={() => handleButtonClick('m+')}>m+</button>
-      <button onClick={() => handleButtonClick('m-')}>m-</button>
-      <button onClick={() => handleButtonClick('mr')}>mr</button>
-      <button onClick={() => handleButtonClick('C')}>C</button>
-      <button className="operator" onClick={() => handleButtonClick('*')}>*</button>
-      <button className="operator" onClick={() => handleButtonClick('-')}>-</button>
-      <button className="operator" onClick={() => handleButtonClick('%')}>%</button>
-      <button className="operator" onClick={() => handleButtonClick('÷')}>÷</button>
-      <button onClick={() => handleButtonClick('2nd')}>2nd</button>
-      <button onClick={() => handleButtonClick('x2')}>x2</button>
-      <button onClick={() => handleButtonClick('x3')}>x3</button>
-      <button onClick={() => handleButtonClick('xy')}>xy</button>
-      <button onClick={() => handleButtonClick('ex')}>ex</button>
-      <button onClick={() => handleButtonClick('10x')}>10x</button>
-      <button onClick={() => handleButtonClick('7')}>7</button>
-      <button onClick={() => handleButtonClick('8')}>8</button>
-      <button onClick={() => handleButtonClick('9')}>9</button>
-      <button className="operator" onClick={() => handleButtonClick('x')}>x</button>
-      <button onClick={() => handleButtonClick('1/x')}>1/x</button>
-      <button onClick={() => handleButtonClick('√x')}>√x</button>
-      <button onClick={() => handleButtonClick('3√x')}>3√x</button>
-      <button onClick={() => handleButtonClick('√x')}>√x</button>
-      <button onClick={() => handleButtonClick('ln')}>ln</button>
-      <button onClick={() => handleButtonClick('log10')}>log10</button>
-      <button onClick={() => handleButtonClick('4')}>4</button>
-      <button onClick={() => handleButtonClick('5')}>5</button>
-      <button onClick={() => handleButtonClick('6')}>6</button>
-      <button className="operator" onClick={() => handleButtonClick('-')}>-</button>
-      <button onClick={() => handleButtonClick('x!')}>x!</button>
-      <button onClick={() => handleButtonClick('sin')}>sin</button>
-      <button onClick={() => handleButtonClick('cos')}>cos</button>
-      <button onClick={() => handleButtonClick('tan')}>tan</button>
-      <button onClick={() => handleButtonClick('e')}>e</button>
-      <button onClick={() => handleButtonClick('EE')}>EE</button>
-      <button onClick={() => handleButtonClick('1')}>1</button>
-      <button onClick={() => handleButtonClick('2')}>2</button>
-      <button onClick={() => handleButtonClick('3')}>3</button>
-      <button className="operator" onClick={() => handleButtonClick('+')}>+</button>
-      <button onClick={() => handleButtonClick('Rad')}>Rad</button>
-      <button onClick={() => handleButtonClick('sinh')}>sinh</button>
-      <button onClick={() => handleButtonClick('cosh')}>cosh</button>
-      <button onClick={() => handleButtonClick('tanh')}>tanh</button>
-      <button onClick={() => handleButtonClick('π')}>π</button>
-      <button onClick={() => handleButtonClick('Rand')}>Rand</button>
-      <button onClick={() => handleButtonClick('0')}>0</button>
-      <button onClick={() => handleButtonClick('.')}>.</button>
-      <button className="operator" onClick={() => handleButtonClick('=')}>=</button>
-    </div>
-  );
-};
+### `npm start`
 
-export default Calculator;
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-CSS Code
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f5;
-    margin: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-}
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-.calculator {
-    width: 320px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    background-color: #333;
-    padding: 20px;
-}
+### `npm test`
 
-.display {
-    background-color: #222;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    text-align: right;
-}
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-.display input {
-    width: 100%;
-    border: none;
-    background: none;
-    color: #fff;
-    font-size: 2em;
-    text-align: right;
-    outline: none;
-}
+### `npm run build`
 
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-}
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-button {
-    width: 100%;
-    padding: 20px;
-    border: none;
-    border-radius: 10px;
-    background-color: #444;
-    color: white;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-button:active {
-    background-color: #555;
-}
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-button:nth-child(4n+4),
-button:nth-last-child(-n+3) {
-    background-color: #f7931e;
-    color: white;
-}
+### `npm run eject`
 
-button:nth-child(4n+4):active,
-button:nth-last-child(-n+3):active {
-    background-color: #ffa500;
-}
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
